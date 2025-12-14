@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LokalPick - Katalog Produk Lokal Terbaik</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <span class="lokal-color">Lokal</span><span class="pick-color">Pick</span>
+        </div>
+        <h1>Katalog Produk Lokal Terbaik Indonesia 🇮🇩</h1>
+        <nav>
+    <a href="landing.html">Beranda</a>
+    <a href="index.html">Katalog</a>
+    <a href="aboutus.html">Tentang Kami</a>
+    <a id="auth-link" href="login.html">Masuk</a> 
+       </nav>
+    </header>
+
+    <main>
+        <div class="filters-container">
+            <h2>Filter Produk</h2>
+            
+            <div class="filter-group">
+                <label for="gender-filter">Kategori Gender:</label>
+                <select id="gender-filter">
+                    <option value="all">Semua Gender</option>
+                    <option value="pria">Pria</option>
+                    <option value="wanita">Wanita</option>
+                    <option value="unisex">Unisex/Pria & Wanita</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="category-filter">Kategori Produk:</label>
+                <select id="category-filter">
+                    <option value="all">Semua Kategori</option>
+                    <option value="hijab">Hijab</option>
+                    <option value="baju">Baju</option>
+                    <option value="celana">Celana</option>
+                    <option value="sepatu">Sepatu/Sandal</option>
+                    <option value="tas">Tas</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sort-filter">Urutkan Harga (Berdasarkan Termurah Brand):</label>
+                <select id="sort-filter">
+                    <option value="none">Tidak Diurutkan</option>
+                    <option value="termurah">Termurah ke Termahal</option>
+                    <option value="termahal">Termahal ke Termurah</option>
+                </select>
+            </div>
+
+            <button onclick="applyFilters()">Terapkan Filter</button>
+            <button onclick="resetFilters()">Reset Filter</button>
+        </div>
+
+        <div class="product-catalog" id="product-list">
+            </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LokalPick. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="app.js"></script>
+<script>
+        // FUNGSI UNTUK MELAKUKAN LOG OUT
+        function logout() {
+            // 1. Hapus status login dari Local Storage
+            localStorage.removeItem("loggedIn");
+            
+            // 2. Alihkan pengguna kembali ke halaman Beranda/Landing
+            window.location.href = "landing.html";
+        }
+
+        // FUNGSI UNTUK MEMPERBARUI TAMPILAN LINK MASUK/KELUAR
+        function updateAuthLink() {
+            const authLink = document.getElementById('auth-link');
+            // Cek status login dari Local Storage
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+            if (authLink) { 
+                if (isLoggedIn) {
+                    // Jika sudah login, tampilkan "Keluar"
+                    authLink.textContent = "Keluar";
+                    authLink.href = "javascript:void(0)"; // Link tidak mengarah ke file
+                    authLink.onclick = logout; // Panggil fungsi logout saat diklik
+                    
+                    // Style untuk menandai tautan
+                    authLink.style.fontWeight = "bold";
+                    authLink.style.borderBottom = "2px solid white";
+                } else {
+                    // Jika belum login, tampilkan "Masuk"
+                    authLink.textContent = "Masuk";
+                    authLink.href = "login.html";
+                    authLink.onclick = null;
+                    
+                    // Pastikan style active dihapus
+                    authLink.style.fontWeight = "500";
+                    authLink.style.borderBottom = "none";
+                }
+            }
+        }
+
+        // Jalankan fungsi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', updateAuthLink);
+    </script>
+</body> 
+</html>

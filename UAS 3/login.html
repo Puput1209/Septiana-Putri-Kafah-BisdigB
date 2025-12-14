@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LokalPick | Masuk Akun</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* DEFINISI VARIABEL WARNA (PENTING!) */
+        :root {
+            --color-primary: #382E2E; 
+            --color-accent: #D76E2A; 
+        }
+
+        /* Gaya spesifik untuk Login Page */
+        .login-container {
+            width: 350px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-container h2 {
+            color: var(--color-primary);
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--color-accent);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-button:hover {
+            background-color: #c06226;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <span class="lokal-color">Lokal</span><span class="pick-color">Pick</span>
+        </div>
+        <h1>Katalog Produk Lokal Terbaik Indonesia 🇮🇩</h1>
+        <nav>
+            <a href="landing.html">Beranda</a>
+            <a href="index.html">Katalog</a>
+            <a href="aboutus.html">Tentang Kami</a>
+            <a href="login.html" style="font-weight: bold; border-bottom: 2px solid white;">Masuk</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <h2>Masuk ke Akun Anda</h2>
+            <div> 
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Kata Sandi</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="button" onclick="login()" class="login-button">Masuk</button>
+                
+                <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+                    Gunakan email <strong>user@mail.com</strong><br>
+                    Password: <strong>12345</strong>
+                </p>
+                <p style="margin-top: 10px; font-size: 0.9em;">
+                    <a href="#" style="color: var(--color-accent); text-decoration: none;">Lupa Kata Sandi?</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LokalPick. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        function login() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Menggunakan .trim() untuk menghilangkan spasi tak disengaja
+            if (email.trim() === "user@mail.com" && password.trim() === "12345") {
+                // Login Berhasil
+                localStorage.setItem("loggedIn", "true");
+                window.location.href = "index.html";
+            } else {
+                // Login Gagal
+                alert("Email atau password salah!");
+            }
+        }
+    </script>
+</body>
+</html>

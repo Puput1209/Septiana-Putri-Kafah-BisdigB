@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LokalPick | Pilihan Produk Lokal Terbaik</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gaya spesifik untuk Landing Page */
+        .hero-section {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 80px 20px;
+            margin: 20px auto;
+            border-radius: 12px;
+            max-width: 900px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .hero-section h2 {
+            font-size: 2.5em;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .hero-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+        }
+        .hero-button:hover {
+            background-color: #c06226;
+        }
+    </style>
+</head>
+<body>
+
+   <header>
+    <div class="logo">
+        <span class="lokal-color">Lokal</span><span class="pick-color">Pick</span>
+    </div>
+    <h1>Katalog Produk Lokal Terbaik Indonesia 🇮🇩</h1>
+    
+    <nav>
+    <a href="landing.html">Beranda</a>
+    <a href="index.html">Katalog</a>
+    <a href="aboutus.html">Tentang Kami</a>
+    <a id="auth-link" href="login.html">Masuk</a> 
+    </nav>
+</header>
+
+    <main>
+        <div class="hero-section">
+            <h2>Temukan Brand Lokal Kebanggaan Indonesia</h2>
+            <p>LokalPick adalah agregator katalog produk-produk lokal terbaik, mulai dari sepatu, baju, hijab, hingga tas. Dukung produk dalam negeri, jelajahi pilihan tak terbatas!</p>
+            <a href="index.html" class="hero-button">Lihat Semua Katalog Sekarang!</a>
+        </div>
+        </main>
+
+    <footer>
+        <p>&copy; 2024 LokalPick. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+<script>
+        // FUNGSI UNTUK MELAKUKAN LOG OUT
+        function logout() {
+            // 1. Hapus status login dari Local Storage
+            localStorage.removeItem("loggedIn");
+            
+            // 2. Alihkan pengguna kembali ke halaman Beranda/Landing
+            window.location.href = "landing.html";
+        }
+
+        // FUNGSI UNTUK MEMPERBARUI TAMPILAN LINK MASUK/KELUAR
+        function updateAuthLink() {
+            const authLink = document.getElementById('auth-link');
+            // Cek status login dari Local Storage
+            const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+            if (authLink) { 
+                if (isLoggedIn) {
+                    // Jika sudah login, tampilkan "Keluar"
+                    authLink.textContent = "Keluar";
+                    authLink.href = "javascript:void(0)"; // Link tidak mengarah ke file
+                    authLink.onclick = logout; // Panggil fungsi logout saat diklik
+                    
+                    // Style untuk menandai tautan
+                    authLink.style.fontWeight = "bold";
+                    authLink.style.borderBottom = "2px solid white";
+                } else {
+                    // Jika belum login, tampilkan "Masuk"
+                    authLink.textContent = "Masuk";
+                    authLink.href = "login.html";
+                    authLink.onclick = null;
+                    
+                    // Pastikan style active dihapus
+                    authLink.style.fontWeight = "500";
+                    authLink.style.borderBottom = "none";
+                }
+            }
+        }
+
+        // Jalankan fungsi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', updateAuthLink);
+    </script>
+</body> 
+</html>
