@@ -1,0 +1,197 @@
+
+/* WARNA TEMA BERDASARKAN LOGO LOKALPICK */
+:root {
+    --color-primary: #382E2E;   /* Cokelat Gelap (Header) */
+    --color-accent: #D76E2A;    /* Oranye (Aksen) */
+    --color-shopee: #ff5722;    /* Oranye Shopee untuk tombol beli */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* --- HEADER GABUNGAN (Sticky Navigation) --- */
+header {
+    background-color: var(--color-primary); 
+    color: white;
+    padding: 15px 20px; /* Padding standar yang diinginkan */
+    text-align: center;
+    
+    /* Properti Sticky Header */
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    font-size: 2.2em; 
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.lokal-color {
+    color: var(--color-accent); /* Oranye dari logo */
+}
+
+.pick-color {
+    color: white; /* Putih agar kontras */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Gaya untuk Navigasi */
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white; 
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-accent); /* Warna oranye saat di-hover */
+    border-bottom: 2px solid var(--color-accent); /* Garis bawah saat di-hover */
+}
+
+/* Penyesuaian konten utama */
+main {
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Filter Container --- */
+.filters-container {
+    width: 250px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filters-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filters-container select, .filters-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.filters-container button {
+    background-color: var(--color-accent); /* Oranye Tombol Filter */
+    color: white;
+    border: none;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.filters-container button:hover {
+    background-color: #c06226; 
+}
+
+
+/* --- Katalog Produk --- */
+.product-catalog {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Container untuk Gambar Logo Brand */
+.brand-logo-container {
+    height: 150px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; 
+    border-bottom: 1px solid #eee;
+}
+
+.brand-logo {
+    max-width: 80%; 
+    max-height: 80%; 
+    object-fit: contain; 
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    margin-top: 0;
+    color: var(--color-primary); 
+    font-size: 1.3em;
+}
+
+.product-info .brand-price {
+    font-weight: bold;
+    color: var(--color-accent); 
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.buy-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-shopee); 
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.buy-button:hover {
+    background-color: #e64a19;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: white;
+    margin-top: 20px;
+}
